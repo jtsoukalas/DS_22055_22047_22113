@@ -29,7 +29,7 @@ public class CircularQueue<E> implements Queue<E> {
      */
     @Override
     public void push(E elem) {
-        if (size() == array.length-1) {
+        if (size() >= array.length - 1) {
             doubleCapacity();
         }
         array[r] = elem;
@@ -47,7 +47,7 @@ public class CircularQueue<E> implements Queue<E> {
     /**
      * Pop an element from the queue
      *
-     * @return
+     * @return the first object in the queue
      */
 
     /*
@@ -72,6 +72,9 @@ public class CircularQueue<E> implements Queue<E> {
         return result;
     }
 
+    /**
+     * Downsizes
+     */
     private void halfCapacity() {
         //Checking if the amount of elements is less than the half capacity of the array
         if (size() > array.length / 2) {       //TODO talk about it
@@ -87,9 +90,10 @@ public class CircularQueue<E> implements Queue<E> {
             current = (current + 1) % array.length;
         }
 
-        //Updating the indexes
+        //Connecting newArray and updating the indexes
+        array = newArray;
         f = 0;
-        r = size()+1;
+        r = size();
     }
 
     /**
@@ -119,7 +123,7 @@ public class CircularQueue<E> implements Queue<E> {
      */
     @Override
     public int size() {
-        return (r-f + array.length) % array.length;
+        return (r - f + array.length) % array.length;
     }
 
     /**
