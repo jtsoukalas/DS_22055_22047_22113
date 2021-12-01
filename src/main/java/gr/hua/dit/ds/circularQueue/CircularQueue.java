@@ -38,9 +38,7 @@ public class CircularQueue<E> implements Queue<E> {
 
     private void doubleCapacity() {
         E[] newArray = (E[]) new Object[array.length * 2];
-        for (int i = 0; i < array.length; i++) {
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         array = newArray;
     }
 
