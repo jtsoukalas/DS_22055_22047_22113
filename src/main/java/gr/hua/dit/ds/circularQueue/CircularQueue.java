@@ -89,7 +89,8 @@ public class CircularQueue<E> implements Queue<E> {
 
         //Updating the indexes
         f = 0;
-        r = size()+1;
+        r = size();
+        array = newArray;
     }
 
     /**

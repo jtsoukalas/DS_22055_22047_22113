@@ -17,20 +17,23 @@ public class LinkedQueueTest {
 		
 		assertTrue(q.isEmpty());
 
-		int count = 100;
+		int count = 10;
 
 		for (int i = 0; i < count; i++) {
 			q.push(i);
 			assertEquals(q.size(), i + 1);
 			assertEquals(0, (int) q.first());
+			System.out.println(q.first());
 		}
+		System.out.println("first:"+q.first());
 
 		int current = 0;
 		while (!q.isEmpty()) {
 			assertEquals((int) q.first(), current);
 			assertEquals((int) q.pop(), current);
-			current++;
 			System.out.println(current);
+			current++;
+			System.out.println("first:"+q.first());
 		}
 		assertTrue(q.isEmpty());
 	}
