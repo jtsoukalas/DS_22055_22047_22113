@@ -3,7 +3,7 @@ package gr.hua.dit.ds.circularQueue;
 import java.util.NoSuchElementException;
 
 public class CircularQueue<E> implements Queue<E> {
-    private static final int DEFAULT_CAPACITY = 64;
+    private static final int DEFAULT_CAPACITY = 16;
 
     private E[] array;
     private int f, r;
@@ -13,8 +13,8 @@ public class CircularQueue<E> implements Queue<E> {
             throw new IllegalArgumentException("Wrong capacity, please provide positive number");
         }
         this.array = (E[]) new Object[capacity];
-        f = 0;
-        r = 0;
+        this.f = 0;
+        this.r = 0;
 
     }
 
@@ -42,6 +42,7 @@ public class CircularQueue<E> implements Queue<E> {
             newArray[i] = array[i];
         }
         array = newArray;
+        System.out.println("Array capacity changed!\n"); //todo na to sbhso
     }
 
     /**
@@ -66,23 +67,24 @@ public class CircularQueue<E> implements Queue<E> {
         E result = first();
         array[f] = null;
         f = (f + 1) % array.length;
-        if (size() <= array.length / 4) {
+        if (size() <= array.length / 4 && f!=r) {
             halfCapacity();
         }
         return result;
     }
 
     private void halfCapacity() {
+        /*
         //Checking if the amount of elements is less than the half capacity of the array
         if (size() > array.length / 2) {       //TODO talk about it
             return;
         }
-
+        */
         E[] newArray = (E[]) new Object[array.length / 2];
 
         //Copying the elements from old array and swifting them to the start of new array
         int current = f;
-        for (int i = 0; i < size(); i++) {
+        for (int i = 0; i <= size(); i++) {
             newArray[i] = array[current];
             current = (current + 1) % array.length;
         }
@@ -131,4 +133,5 @@ public class CircularQueue<E> implements Queue<E> {
         array = (E[]) new Object[DEFAULT_CAPACITY];
         r = f;
     }
+
 }

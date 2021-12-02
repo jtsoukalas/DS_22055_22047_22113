@@ -17,7 +17,7 @@ public class LinkedQueueTest {
 		
 		assertTrue(q.isEmpty());
 
-		int count = 10;
+		int count = 64;
 
 		for (int i = 0; i < count; i++) {
 			q.push(i);
@@ -36,6 +36,83 @@ public class LinkedQueueTest {
 			System.out.println("first:"+q.first());
 		}
 		assertTrue(q.isEmpty());
+	}
+
+	@Test
+	public void testLinkedQueueHardcoded() {
+		Queue<Integer> q = new CircularQueue<>();
+
+		assertTrue(q.isEmpty());
+
+		int count = 15;
+		//1.I push 15 elements
+		for(int i=0;i<count;i++){
+			q.push(i);
+			assertEquals(q.size(), i + 1);
+			assertEquals(0, (int) q.first());
+			System.out.println("Element " + i + " pushed.");
+		}
+		//First and Last print
+		System.out.println("Elements in the circular queue: "+q.size()+" from 16.");
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+count+"\n\n");
+
+		//2.adding last element to check double
+		q.push(15);
+		assertEquals(q.size(), 16);
+		assertEquals(0, (int) q.first());
+		System.out.println("Elements in the circular queue: "+q.size()+" from 16.");
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+(count+1)+"\n\n");
+
+
+		//3.poping first emelent
+		q.pop();
+		assertEquals(q.size(), 15);
+		assertEquals(1, (int) q.first());
+		System.out.println("Elements in the circular queue: "+q.size()+" from 16.");
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+(count+1)+"\n\n");
+
+		//4.adding 32-16+1 elements,what is the r position?
+		for(int i=16;i<32;i++){
+			q.push(i);
+			assertEquals(q.size(), i);
+			assertEquals(1, (int) q.first());
+			System.out.println("Element " + i + " pushed.");
+		}
+		assertEquals(q.size(), 31);
+		assertEquals(1, (int) q.first());
+
+		//First and Last print
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+0);
+
+		//PUSH WORKS OK!!!
+
+
+
+
+		//continue to pop() and halfCapacity()
+
+		//poping almost the 15 of 31 elements ....16 elements remain
+		int x=q.size();
+		for(int i=0;i<15;i++){
+			q.pop();
+			assertEquals(q.size(),x-i-1);
+			assertEquals(i+2, (int) q.first());
+			System.out.println("Element " + i + " popped.");
+		}
+		//First and Last print
+		System.out.println("Elements in the circular queue: "+q.size()+" from 32."); //must be 16
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+0);
+
+		//checking popping in boundaries for halfCapacity()
+		//which means I pop a number before halfCapaacity called
+		//the exact number that the half capacity is called
+		//a number after halfCapaacity called
+
 	}
 
 }
