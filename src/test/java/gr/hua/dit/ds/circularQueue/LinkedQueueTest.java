@@ -94,6 +94,7 @@ public class LinkedQueueTest {
 
 
 		//continue to pop() and halfCapacity()
+		//r=0,f=1
 
 		//poping almost the 15 of 31 elements ....16 elements remain
 		int x=q.size();
@@ -107,12 +108,54 @@ public class LinkedQueueTest {
 		System.out.println("Elements in the circular queue: "+q.size()+" from 32."); //must be 16
 		System.out.println("First (f) == "+q.first());
 		System.out.println("Last+1 (r)== "+0);
+		//r=0,f=16
 
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+		//r=0,f=16
 		//checking popping in boundaries for halfCapacity()
-		//which means I pop a number before halfCapaacity called
-		//the exact number that the half capacity is called
-		//a number after halfCapaacity called
+		//which means I pop a number before halfCapaacity called...    1.pop 7 elements
+		x=q.size();
+		for(int i=15;i<22;i++){
+			q.pop();
+			System.out.println("Element " + i + " popped.");
+			assertEquals(q.size(),x-1);
+			assertEquals(1, (int) q.first());
+		}
+		//First and Last print
+		System.out.println("Elements in the circular queue: "+q.size()+" from 32."); //must be 9
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+0);
+		/*
 
+		//the exact number that the half capacity is called...         2.popping 8 elements
+		x=q.size();
+		for(int i=0;i<8;i++){
+			q.pop();
+			System.out.println("Element " + i + " popped.");
+			assertEquals(q.size(),x-1);
+			assertEquals(1, (int) q.first());
+		}
+		//First and Last print
+		System.out.println("Elements in the circular queue: "+q.size()+" from 32."); //must be 8
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+0);
+
+		//a number after halfCapaacity called...                       3.popping 9 elements
+		x=q.size();
+		for(int i=0;i<9;i++){
+			q.pop();
+			System.out.println("Element " + i + " popped.");
+			assertEquals(q.size(),x-1);
+			assertEquals(1, (int) q.first());
+		}
+		//First and Last print
+		System.out.println("Elements in the circular queue: "+q.size()+" from 32."); //must be 7
+		System.out.println("First (f) == "+q.first());
+		System.out.println("Last+1 (r)== "+0);
+
+	*/
 	}
 
 }
