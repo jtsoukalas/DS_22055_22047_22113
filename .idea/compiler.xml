@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DS_First_Exc" />
+        <module name="DS_22055_22047_22113" />
       </profile>
     </annotationProcessing>
   </component>

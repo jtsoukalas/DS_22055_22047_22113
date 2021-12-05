@@ -3,133 +3,106 @@ package gr.hua.dit.ds.circularQueue;
 import java.util.NoSuchElementException;
 
 public class CircularQueue<E> implements Queue<E> {
-    private static final int DEFAULT_CAPACITY = 64;
+    private static int DEFAULT_CAPACITY = 64;
 
     private E[] array;
-    private int f, r;
-
-    public CircularQueue(int capacity) {
-        if (capacity < 0) {
-            throw new IllegalArgumentException("Wrong capacity, please provide positive number");
-        }
-        this.array = (E[]) new Object[capacity];
-        f = 0;
-        r = 0;
-
-    }
+    private int capacity;
+    private int front, rear;
 
     public CircularQueue() {
         this(DEFAULT_CAPACITY);
     }
 
-    /**
-     * Push a new element into the queue
-     *
-     * @param elem the element
-     */
+    public CircularQueue(int capacity) {
+
+        array = (E[]) new Object[capacity];
+        front = 0;
+        rear = 0;
+        this.capacity = capacity;
+    }
+
     @Override
     public void push(E elem) {
-        if (size() >= array.length - 1) {
+        if (size() == capacity - 1) {
             doubleCapacity();
         }
-        array[r] = elem;
-        r = (r + 1) % array.length;
+
+        array[rear] = elem;
+        rear = (rear + 1) % capacity;
     }
 
-    private void doubleCapacity() {
-        E[] newArray = (E[]) new Object[array.length * 2];
-        System.arraycopy(array, 0, newArray, 0, array.length);
+    private void doubleCapacity() {     //Minor Changes
+        E[] newArray = (E[]) new Object[capacity * 2];
+        int current = front;
+
+        for (int i = 0; i < size(); i++) {
+            newArray[i] = array[current];
+            current = (current + 1) % capacity;
+        }
         array = newArray;
+        front = 0;
+        rear = size();
+        capacity = capacity * 2;    //!
     }
 
-    /**
-     * Pop an element from the queue
-     *
-     * @return the first object in the queue
-     */
-
-    /*
-            1. Keep elem (array[f])
-            2. delete array[f]
-            2. f update
-            4. check for halfCapacity
-            5. return elem
-    */
     @Override
     public E pop() {
         if (isEmpty()) {
-            throw new NoSuchElementException("Circular queue is empty!\n");
+            throw new NoSuchElementException();
         }
+        E temp = first();
+        array[front] = null;
+        front = (front + 1) % capacity;
 
-        E result = first();
-        array[f] = null;
-        f = (f + 1) % array.length;
-        if (size() <= array.length / 4) {
+        if (size() <= capacity / 4) {
             halfCapacity();
         }
-        return result;
+        return temp;
     }
 
-    /**
-     * Downsizes
-     */
     private void halfCapacity() {
         //Checking if the amount of elements is less than the half capacity of the array
-        if (size() > array.length / 2) {       //TODO talk about it
+        if (size() > capacity / 2) {       //TODO talk about it
             return;
         }
 
         E[] newArray = (E[]) new Object[array.length / 2];
 
         //Copying the elements from old array and swifting them to the start of new array
-        int current = f;
+        int current = front;
         for (int i = 0; i < size(); i++) {
             newArray[i] = array[current];
-            current = (current + 1) % array.length;
+            current = (current + 1) % capacity;
         }
 
         //Connecting newArray and updating the indexes
+        rear = size();          // δίνουμε το σωστό size οχι αυτό που επηρεαζεται απο το λαθος capacity
+        capacity /= 2;
         array = newArray;
-        f = 0;
-        r = size();
+        front = 0;
     }
 
-    /**
-     * Return the first element of the queue
-     *
-     * @return the first element of the queue
-     */
     @Override
     public E first() {
-        return array[f];
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return array[front];
     }
 
-    /**
-     * Check if a queue is empty
-     *
-     * @return true if empty, false otherwise
-     */
     @Override
     public boolean isEmpty() {
-        return f == r;
+        return front == rear;
     }
 
-    /**
-     * Get the size of the queue
-     *
-     * @return the size of the queue
-     */
     @Override
     public int size() {
-        return (r - f + array.length) % array.length;
+        return (rear - front + capacity) % capacity;
     }
 
-    /**
-     * Clear the queue
-     */
     @Override
     public void clear() {
-        array = (E[]) new Object[DEFAULT_CAPACITY];
-        r = f;
+        array = (E[]) new Object[capacity];
+        front = rear;
     }
 }
