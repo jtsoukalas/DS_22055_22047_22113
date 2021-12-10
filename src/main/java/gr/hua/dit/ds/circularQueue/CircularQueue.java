@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.circularQueue;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -170,5 +171,30 @@ public class CircularQueue<E> implements Queue<E> {
     public void clear() {
         array = (E[]) new Object[capacity];
         front = rear;
+    }
+
+    // Getters for test debugging
+    public E[] getArray() {
+        return array;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getFront() {
+        return front;
+    }
+
+    public int getRear() {
+        return rear;
+    }
+
+    @Override
+    public String toString() {
+        return " CircularQueue= " + Arrays.toString(array) +
+                "\ncapacity=" + capacity +
+                "\nfront=" + front +
+                "\nrear=" + rear;
     }
 }
