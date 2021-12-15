@@ -83,7 +83,7 @@ public class CircularQueue<E> implements Queue<E> {
         front = (front + 1) % capacity;
 
         //Decreases the queue by half
-        if (size() < capacity / 4 && capacity>10) {     //TODO size<capacity/4 or <= ?
+        if (size() < capacity / 4 && capacity/2>=10) {     //TODO size<capacity/4 or <= ?
             halfCapacity();
         }
         return temp;

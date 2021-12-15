@@ -10,7 +10,7 @@ public class Test2 {
     @Test
     public void Test2() {
 
-        int capacity = 1000;
+        int capacity = 10;
         int next_push_element = 0;
         int next_pop_element = 0;
 
@@ -44,11 +44,11 @@ public class Test2 {
         q.push(next_push_element++);
         System.out.println("Faze3b" + q);
 
-        {//Pop elements and check values
+        //Pop elements and check values
             while (!q.isEmpty()) {
                 assertEquals(next_pop_element++, (int) q.pop());
             }
-        }
+
 
         System.out.println("Faze4" + q);
     }
