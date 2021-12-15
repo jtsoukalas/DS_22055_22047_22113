@@ -17,7 +17,7 @@ public class CircularQueueTest {
 
         assertTrue(q.isEmpty());
 
-        int count = 68;
+        int count = 500;
 
         for (int i = 0; i < count; i++) {
             q.push(i);

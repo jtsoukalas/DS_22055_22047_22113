@@ -21,6 +21,7 @@ public class CircularQueue<E> implements Queue<E> {
 
     /**
      * <h1>Default constructor</h1>
+     * Uses: {@link #CircularQueue(int)} with the {@link #DEFAULT_CAPACITY}
      */
     public CircularQueue() {
         this(DEFAULT_CAPACITY);
@@ -30,8 +31,9 @@ public class CircularQueue<E> implements Queue<E> {
      * <h1>Constructor</h1>
      *
      * @param capacity desired int for initial capacity (must be even)
+     * @throws IllegalArgumentException if capacity is not even number
      */
-    public CircularQueue(int capacity) {
+    public CircularQueue(int capacity) throws IllegalArgumentException{
         if (capacity % 2 != 0) {
             throw new IllegalArgumentException("Circular queue size must be even");
         }
@@ -61,6 +63,7 @@ public class CircularQueue<E> implements Queue<E> {
         rear = (rear + 1) % capacity;
     }
 
+
     /**
      * <h1>Pops the first element of the queue if it exists</h1>
      * Updates front index, points to the next queue slot. <br>
@@ -83,7 +86,7 @@ public class CircularQueue<E> implements Queue<E> {
         front = (front + 1) % capacity;
 
         //Decreases the queue by half
-        if (size() < capacity / 4 && capacity>10) {     //TODO size<capacity/4 or <= ?
+        if (size() < capacity / 4 && capacity >= 10) {     //TODO size<capacity/4 or <= ?
             halfCapacity();
         }
         return temp;
