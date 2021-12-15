@@ -10,7 +10,7 @@ public class Test2 {
     @Test
     public void Test2() {
 
-        int capacity = 16;
+        int capacity = 100;
         int next_push_element = 0;
         int next_pop_element = 0;
 
@@ -51,6 +51,7 @@ public class Test2 {
             assertEquals(next_pop_element, (int) q.first());
             assertEquals(next_pop_element++, (int) q.pop());
         }
+
         System.out.println("Faze4" + q);
 
         assertTrue(q.isEmpty());
