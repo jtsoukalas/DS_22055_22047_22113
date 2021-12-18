@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
  * @author Orestis Kritsotakis (it22055)
  * @author Jason Tsoukalas (it22113)
  */
-public class CircularQueue<E> implements Queue<E> {
+public class CircularQueue<E> implements Queue<E>, Cloneable {
     private static final int DEFAULT_CAPACITY = 64;
 
     private E[] array;
@@ -176,7 +176,7 @@ public class CircularQueue<E> implements Queue<E> {
         front = rear;
     }
 
-    // Getters for test debugging
+    // TODO: Getters for test debugging
     public E[] getArray() {
         return array;
     }
@@ -199,5 +199,19 @@ public class CircularQueue<E> implements Queue<E> {
                 "\ncapacity=" + capacity +
                 "\nfront=" + front +
                 "\nrear=" + rear;
+    }
+
+    @Override
+    public CircularQueue<E> clone() {
+        try {
+            CircularQueue clone = (CircularQueue) super.clone();
+            clone.capacity = capacity;
+            clone.front = front;
+            clone.rear = rear;
+            clone.array = array.clone();
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
