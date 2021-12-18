@@ -1,7 +1,3 @@
-/**
- * This code is part of the lab exercises for the Data Structures course at Harokopio
- * University of Athens, Dept. of Informatics and Telematics.
- */
 package gr.hua.dit.ds.circularQueue;
 
 import org.junit.Test;
@@ -11,6 +7,10 @@ import static org.junit.Assert.assertTrue;
 
 public class CircularQueueTests {
 
+    /**
+     * This code is part of the lab exercises for the Data Structures course at Harokopio
+     * University of Athens, Dept. of Informatics and Telematics.
+     */
     @Test
     public void test1() {
         Queue<Integer> q = new CircularQueue<>();
