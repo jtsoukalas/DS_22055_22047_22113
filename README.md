@@ -3,6 +3,8 @@ HUA - Data Structures Projects
 
 <h1>Circular Queue</h1>
 
+[In order to compile and execute easily tap here and run the shell script](compileAndExecute.sh) 
+
 <h3>How to compile</h3>
 ```
 mvn clean
