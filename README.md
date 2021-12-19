@@ -2,11 +2,17 @@
 HUA - Data Structures Projects 
 
 <h1>Circular Queue</h1>
-Circular queue is a FIFO queue that uses the technique of circular table.
 
 <h3>How to compile</h3>
-mvn compile
-mvn install
+```
+mvn clean
+mvn package
+```
 
 <h3>How to execute</h3>
-mvn exec:java -Dexec.mainClass=gr.hua.dit.ds.circularQueue.App
+```
+java -cp target/DS_First_Exc-1.0-SNAPSHOT.jar gr.hua.dit.ds.circularQueue.App
+```
+
+Extended information for the Circular Queue:
+[Circular Queue Report](Report_DS_1stEx_22055_22047_22113-2%20.docx)
