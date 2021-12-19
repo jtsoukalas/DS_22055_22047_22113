@@ -1,5 +1,5 @@
-package gr.hua.dit.ds.circularQueue;
-
+import gr.hua.dit.ds.circularQueue.CircularQueue;
+import gr.hua.dit.ds.circularQueue.Queue;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
