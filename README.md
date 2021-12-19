@@ -1,20 +1,38 @@
-# DS_22055_22047_22113
-HUA - Data Structures Projects 
 
-<h1>Circular Queue</h1>
+![Logo](https://www.hua.gr/files/HUA_LOGOS/HUA_Logo_Blue.png)
+![Logo](https://www.dit.hua.gr/images/dit/dit-logo.png)
 
-[In order to compile and execute easily tap here and run the shell script](compileAndExecute.sh) 
 
-<h3>How to compile</h3>
-```
+# Circular queue
+
+First exercise for Data Structures class (3rd semester)
+
+
+## Authors
+
+- Konstantinos Kokkalis (it22047)
+- Orestis Kritsotakis (it22055)
+- Isonas Tsoukalas (it22113)
+
+
+## Project's report
+
+[Reportfile](report)
+
+
+## Run Locally
+-> Unix users: For simple compile and execute [click here to run a dedicated shell script!](compileAndExecute.sh)  
+
+
+Compile with the following lines:
+
+```bash
 mvn clean
 mvn package
 ```
 
-<h3>How to execute</h3>
-```
+and execute with: 
+
+```bash
 java -cp target/DS_First_Exc-1.0-SNAPSHOT.jar gr.hua.dit.ds.circularQueue.App
 ```
-
-Extended information for the Circular Queue:
-[Circular Queue Report](Report_DS_1stEx_22055_22047_22113-2%20.docx)
