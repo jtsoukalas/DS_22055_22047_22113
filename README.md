@@ -1,6 +1,6 @@
 
-![Logo](https://www.hua.gr/files/HUA_LOGOS/HUA_Logo_Blue.png)
-![Logo](https://www.dit.hua.gr/images/dit/dit-logo.png)
+![Logo](/.logos/HUA_Logo_Blue.png)
+![Logo](/.logos/dit-logo-2.png)
 
 
 # Circular queue
