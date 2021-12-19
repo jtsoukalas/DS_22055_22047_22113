@@ -1,3 +1,5 @@
+package gr.hua.dit.ds.circularQueue;
+
 import gr.hua.dit.ds.circularQueue.CircularQueue;
 import gr.hua.dit.ds.circularQueue.Queue;
 import org.junit.Test;
@@ -5,6 +7,16 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * <h1>Tests for {@link CircularQueue} class </h1>
+ *
+ * @version 1.0
+ * @since December 2021
+ *
+ * @author Kostakis Kokkalis (it22047)
+ * @author Orestis Kritsotakis (it22055)
+ * @author Jason Tsoukalas (it22113)
+ */
 public class CircularQueueTests {
 
     /**
@@ -34,6 +46,12 @@ public class CircularQueueTests {
         assertTrue(q.isEmpty());
     }
 
+    /**
+     * <h1>Limits and circularity</h1>
+     * The goal of this test is to push the structure to the limits.
+     * Further than that, we want to test the circular nature of the structure
+     * and make sure of the quality on managing the elements.
+     */
     @Test
     public void test2() {
 

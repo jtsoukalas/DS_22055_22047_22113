@@ -1,6 +1,5 @@
 package gr.hua.dit.ds.circularQueue;
 
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -8,6 +7,8 @@ import java.util.NoSuchElementException;
  * <h3>implements Queue interface developed at HUA.DIT.OS_3rdSem.Lab</h3>
  *
  * @param <E> type of elements inside the queue
+ * @since December 2021
+ * @version 1.0
  * @author Kostakis Kokkalis (it22047)
  * @author Orestis Kritsotakis (it22055)
  * @author Jason Tsoukalas (it22113)
@@ -66,8 +67,11 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
 
     /**
      * <h1>Pops the first element of the queue if it exists</h1>
-     * Updates front index, points to the next queue slot. <br>
-     * Checks if queue uses the 1/4 of its capacity, if true calls {@link #halfCapacity()}.
+     * Updates front index, points to the next queue slot. <br><br>
+     * Checks if: <ol>
+     * <li>queue uses the 1/4 of its capacity and</li>
+     * <li>capacity/2 is grater than 10</li></ol>
+     * in that case calls {@link #halfCapacity()}.<br><br>
      *
      * @return the popped element
      * @throws NoSuchElementException if queue isn't empty (uses {@link #isEmpty()})
@@ -94,7 +98,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
 
     /**
      * <h1> Doubles queue's capacity </h1>
-     * Makes new array with double capacity and transfers the old elements to the new accordingly.
+     * Makes new array with double capacity and transfers the elements to it, after ordering them by push series.
      */
     private void doubleCapacity() {
         E[] newArray = (E[]) new Object[capacity * 2];
@@ -115,7 +119,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
 
     /**
      * <h1> Subdivides queue's capacity </h1>
-     * Makes new array with half capacity and transfers the old elements to the new accordingly.
+     * Makes a new array with half capacity and transfers the elements to it, after ordering them by push series.
      */
     private void halfCapacity() {
         E[] newArray = (E[]) new Object[array.length / 2];
@@ -136,6 +140,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
 
     /**
      * <h1> Returns the first element of the queue</h1>
+     * Note: It doesn't delete it
      * @return the first element of the queue
      * @throws NoSuchElementException if queue is empty (uses {@link #isEmpty()})
      */
@@ -168,7 +173,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
     }
 
     /**
-     * <h1>Clears the queue and updates indexes</h1>
+     * <h1>Clears the queue and updates front index</h1>
      */
     @Override
     public void clear() {
@@ -176,29 +181,9 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
         front = rear;
     }
 
-    // TODO: Getters for test debugging
-    public E[] getArray() {
-        return array;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
-
+    //Following methods are used at CircularQueueTests
     public int getFront() {
         return front;
-    }
-
-    public int getRear() {
-        return rear;
-    }
-
-    @Override
-    public String toString() {
-        return " CircularQueue= " + Arrays.toString(array) +
-                "\ncapacity=" + capacity +
-                "\nfront=" + front +
-                "\nrear=" + rear;
     }
 
     @Override

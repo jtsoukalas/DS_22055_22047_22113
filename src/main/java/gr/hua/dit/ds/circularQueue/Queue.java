@@ -1,12 +1,11 @@
-/**
- * This code is part of the lab exercises for the Data Structures course at Harokopio
- * University of Athens, Dept. of Informatics and Telematics.
- */
+
 package gr.hua.dit.ds.circularQueue;
 
 /**
- * A queue
+ * <h1> A queue </h1>
  *
+ *  This code is part of the lab exercises for the Data Structures course at Harokopio
+ *  University of Athens, Dept. of Informatics and Telematics.
  * @param <E> the element type
  */
 public interface Queue<E> {
