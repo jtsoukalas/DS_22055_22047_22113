@@ -83,7 +83,8 @@ public class CircularQueueTests {
 
         assertTrue(q.isEmpty());
 
-        StringBuilder input = new StringBuilder("Murphy's law is an adage or epigram that is typically stated as: Anything that can go wrong will go wrong." +
+        StringBuilder input = new StringBuilder("Murphy's law is an adage or epigram that is typically stated as: " +
+                "\"Anything that can go wrong will go wrong.\"\n" +
                 "History\n" +
                 "The perceived perversity of the universe has long been a subject of comment, and precursors to the modern version of Murphy's law are not hard to find. Recent significant research in this area has been conducted by members of the American Dialect Society.\n" +
                 "\n" +
@@ -92,8 +93,14 @@ public class CircularQueueTests {
                 "Society member Stephen Goranson has found a version of the law, not yet generalized or bearing that name, in a report by Alfred Holt at an 1877 meeting of an engineering society.\n" +
                 "\n" +
                 "It is found that anything that can go wrong at sea generally does go wrong sooner or later, so it is not to be wondered that owners prefer the safe to the scientific … Sufficient stress can hardly be laid on the advantages of simplicity. The human factor cannot be safely neglected in planning machinery. If attention is to be obtained, the engine must be such that the engineer will be disposed to attend to it.[3]\n" +
-                "American Dialect Society member Bill Mullins has found a slightly broader version of the aphorism in reference to stage magic."
-        );
+                "American Dialect Society member Bill Mullins has found a slightly broader version of the aphorism in reference to stage magic. The British stage magician Nevil Maskelyne wrote in 1908:\n" +
+                "\n" +
+                "It is an experience common to all men to find that, on any special occasion, such as the production of a magical effect for the first time in public, everything that can go wrong will go wrong. Whether we must attribute this to the malignity of matter or to the total depravity of inanimate things, whether the exciting cause is hurry, worry, or what not, the fact remains.[4]\n" +
+                "In 1948, humorist Paul Jennings coined the term resistentialism, a jocular play on resistance and existentialism, to describe \"seemingly spiteful behavior manifested by inanimate objects\",[5] where objects that cause problems (like lost keys or a runaway bouncy ball) are said to exhibit a high degree of malice toward humans.[6][7]\n" +
+                "\n" +
+                "The contemporary form of Murphy's law goes back as far as 1952, as an epigraph to a mountaineering book by John Sack, who described it as an \"ancient mountaineering adage\":\n" +
+                "\n" +
+                "Anything that can possibly go wrong, does.[8] [from Wikipedia]");
 
         //Fill the queue with every character from the above StringBuilder
         for (int i = 0; i < input.length(); i++) {
