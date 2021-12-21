@@ -1,7 +1,5 @@
 package gr.hua.dit.ds.circularQueue;
 
-import gr.hua.dit.ds.circularQueue.CircularQueue;
-import gr.hua.dit.ds.circularQueue.Queue;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -15,7 +13,7 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Kostakis Kokkalis (it22047)
  * @author Orestis Kritsotakis (it22055)
- * @author Jason Tsoukalas (it22113)
+ * @author Iasonas Tsoukalas (it22113)
  */
 public class CircularQueueTests {
 
@@ -29,7 +27,7 @@ public class CircularQueueTests {
 
         assertTrue(q.isEmpty());
 
-        int count = 500000;
+        int count = 100000;
 
         for (int i = 0; i < count; i++) {
             q.push(i);
@@ -95,6 +93,10 @@ public class CircularQueueTests {
         assertTrue(q.isEmpty());
     }
 
+    /**
+     * <h1>Multiple elements and clear method test</h1>
+     * The goal of this test, is to check the structure with multiple objects and also to run the clear() method.
+     */
     @Test
     public void test3() {
         Queue<Character> q = new CircularQueue<>();
@@ -102,7 +104,7 @@ public class CircularQueueTests {
         assertTrue(q.isEmpty());
 
         StringBuilder input = new StringBuilder("Murphy's law is an adage or epigram that is typically stated as: " +
-                "\"Anything that can go wrong will go wrong.\"\n" +
+                "Anything that can go wrong will go wrong." +
                 "History\n" +
                 "The perceived perversity of the universe has long been a subject of comment, and precursors to the modern version of Murphy's law are not hard to find. Recent significant research in this area has been conducted by members of the American Dialect Society.\n" +
                 "\n" +

@@ -4,14 +4,14 @@ import java.util.NoSuchElementException;
 
 /**
  * <h1>Circular Queue</h1>
- * <h3>implements Queue interface developed at HUA.DIT.OS_3rdSem.Lab</h3>
+ * <h3>implements {@link Queue} interface developed at HUA.DIT.OS_3rdSem.Lab</h3>
  *
  * @param <E> type of elements inside the queue
  * @since December 2021
  * @version 1.0
  * @author Kostakis Kokkalis (it22047)
  * @author Orestis Kritsotakis (it22055)
- * @author Jason Tsoukalas (it22113)
+ * @author Iasonas Tsoukalas (it22113)
  */
 public class CircularQueue<E> implements Queue<E>, Cloneable {
     private static final int DEFAULT_CAPACITY = 64;
@@ -66,7 +66,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
 
 
     /**
-     * <h1>Pops the first element of the queue if it exists</h1>
+     * <h1>Deletes and returns the first element of the queue</h1>
      * Updates front index, points to the next queue slot. <br><br>
      * Checks if: <ol>
      * <li>queue uses the 1/4 of its capacity and</li>
@@ -74,7 +74,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
      * in that case calls {@link #halfCapacity()}.<br><br>
      *
      * @return the popped element
-     * @throws NoSuchElementException if queue isn't empty (uses {@link #isEmpty()})
+     * @throws NoSuchElementException if queue is empty (uses {@link #isEmpty()})
      */
     @Override
     public E pop() throws NoSuchElementException {
