@@ -1,5 +1,6 @@
 package gr.hua.dit.ds.circularQueue;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -7,11 +8,11 @@ import java.util.NoSuchElementException;
  * <h3>implements {@link Queue} interface developed at HUA.DIT.OS_3rdSem.Lab</h3>
  *
  * @param <E> type of elements inside the queue
- * @since December 2021
- * @version 1.0
  * @author Kostakis Kokkalis (it22047)
  * @author Orestis Kritsotakis (it22055)
  * @author Iasonas Tsoukalas (it22113)
+ * @version 1.0
+ * @since December 2021
  */
 public class CircularQueue<E> implements Queue<E>, Cloneable {
     private static final int DEFAULT_CAPACITY = 64;
@@ -34,7 +35,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
      * @param capacity desired int for initial capacity (must be even)
      * @throws IllegalArgumentException if capacity is not even number
      */
-    public CircularQueue(int capacity) throws IllegalArgumentException{
+    public CircularQueue(int capacity) throws IllegalArgumentException {
         if (capacity % 2 != 0) {
             throw new IllegalArgumentException("Circular queue size must be even");
         }
@@ -90,7 +91,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
         front = (front + 1) % capacity;
 
         //Decreases the queue by half
-        if (size() < capacity / 4 && capacity/2>=10) {     //TODO size<capacity/4 or <= ?
+        if (size() < capacity / 4 && capacity / 2 >= 10) {     //TODO size<capacity/4 or <= ?
             halfCapacity();
         }
         return temp;
@@ -141,6 +142,7 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
     /**
      * <h1> Returns the first element of the queue</h1>
      * Note: It doesn't delete it
+     *
      * @return the first element of the queue
      * @throws NoSuchElementException if queue is empty (uses {@link #isEmpty()})
      */
@@ -182,8 +184,12 @@ public class CircularQueue<E> implements Queue<E>, Cloneable {
     }
 
     //Following methods are used at CircularQueueTests
-    public int getFront() {
+    protected int getFront() {
         return front;
+    }
+
+    public int getCapacity() {
+        return capacity;
     }
 
     @Override

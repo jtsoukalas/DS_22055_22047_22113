@@ -8,12 +8,11 @@ import static org.junit.Assert.assertTrue;
 /**
  * <h1>Tests for {@link CircularQueue} class </h1>
  *
- * @version 1.0
- * @since December 2021
- *
  * @author Kostakis Kokkalis (it22047)
  * @author Orestis Kritsotakis (it22055)
  * @author Iasonas Tsoukalas (it22113)
+ * @version 1.0
+ * @since December 2021
  */
 public class CircularQueueTests {
 
@@ -31,14 +30,14 @@ public class CircularQueueTests {
 
         for (int i = 0; i < count; i++) {
             q.push(i);
-            assertEquals(q.size(), i + 1);
+            assertEquals(i + 1, q.size());
             assertEquals(0, (int) q.first());
         }
 
         int current = 0;
         while (!q.isEmpty()) {
-            assertEquals((int) q.first(), current);
-            assertEquals((int) q.pop(), current);
+            assertEquals(current, (int) q.first());
+            assertEquals(current, (int) q.pop());
             current++;
         }
         assertTrue(q.isEmpty());
@@ -64,25 +63,25 @@ public class CircularQueueTests {
         // We fill the queue right before double capacity is used
         for (int i = 0; i < capacity - 1; i++) {
             q.push(next_push_element++);
-            assertEquals(q.size(), i + 1);
+            assertEquals(i + 1, q.size());
             assertEquals(next_pop_element, (int) q.first());
-            //assertEquals(0, (int) q.first());
         }
 
-        // We empty the queue up to the point where only 40% capacity -1 element, elements remain
+        // We empty the queue up to the point where only 40% capacity - 1 element, elements remain
         for (int i = q.getFront(); i < 0.6 * capacity; i++) {
             assertEquals(next_pop_element++, (int) q.pop());
             assertEquals(next_pop_element, (int) q.first());
         }
 
         // We fill up the circular queue right before double capacity is used (extreme case rear<front)
-        for (int i = 0; i < 0.6 * capacity; i++) {
+        for (int i = 0; i <= 0.6 * capacity; i++) {
             q.push(next_push_element++);
             assertEquals(next_pop_element, (int) q.first());
         }
 
         // Push element so q will call doubleCapacity
         q.push(next_push_element++);
+        assertEquals(2 * capacity, q.getCapacity());
 
         //Pop elements and check values
         while (!q.isEmpty()) {
@@ -120,7 +119,7 @@ public class CircularQueueTests {
                 "\n" +
                 "The contemporary form of Murphy's law goes back as far as 1952, as an epigraph to a mountaineering book by John Sack, who described it as an \"ancient mountaineering adage\":\n" +
                 "\n" +
-                "Anything that can possibly go wrong, does.[8] [from Wikipedia]");
+                "Anything that can possibly go wrong, does.[8] [source: Wikipedia]");
 
         //Fill the queue with every character from the above StringBuilder
         for (int i = 0; i < input.length(); i++) {
@@ -144,5 +143,6 @@ public class CircularQueueTests {
         //Check clear() method
         q2.clear();
         assertTrue(q2.isEmpty());
+        assertEquals(0, q2.size());
     }
 }
