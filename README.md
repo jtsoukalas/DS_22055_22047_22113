@@ -22,7 +22,7 @@ First exercise for Data Structures class (3rd semester)
 
 
 ## Run Locally
--> Unix users: For simple compile and execute [click here to run a dedicated shell script!](compileAndExecute.sh)  
+-> macOS & Linux users: For simple compile and execute [click here and run a dedicated shell script!](compileAndExecute.sh)  
 
 
 Compile with the following lines:
