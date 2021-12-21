@@ -4,7 +4,7 @@
   <OriginalElement>/Users/jasontsoukalas/Documents/GitHub/DS_22055_22047_22113/src/main/java/gr/hua/dit/ds/circularQueue</OriginalElement>
   <nodes>
     <node x="302.0" y="0.0">gr.hua.dit.ds.circularQueue.App</node>
-    <node x="0.0" y="215.0">gr.hua.dit.ds.circularQueue.CircularQueue</node>
+    <node x="-6.5" y="215.0">gr.hua.dit.ds.circularQueue.CircularQueue</node>
     <node x="17.5" y="0.0">gr.hua.dit.ds.circularQueue.Queue</node>
   </nodes>
   <notes />
@@ -14,9 +14,9 @@
       <point x="0.0" y="82.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="99.0" y="290.0" />
+  <settings layout="Hierarchic" zoom="0.777265663664016" showDependencies="false" x="439.3863682815572" y="312.72922868072055" />
   <SelectedNodes>
-    <node>gr.hua.dit.ds.circularQueue.App</node>
+    <node>gr.hua.dit.ds.circularQueue.CircularQueue</node>
   </SelectedNodes>
   <Categories>
     <Category>Constructors</Category>
